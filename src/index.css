@@ -6,3 +6,56 @@
   font-family: "Shantell Sans", cursive !important;
   cursor: url("../public/images/cursor.png"), auto !important;
 }
+.Typewriter__wrapper {
+  font-size: 24px;
+  color: #8b5cf6 !important;
+  font-weight: 600 !important;
+}
+.Typewriter__cursor {
+  font-size: 24px;
+  color: #8b5cf6 !important;
+}
+@media (min-width: 767px) {
+  .Typewriter__wrapper {
+    font-size: 36px;
+    color: #8b5cf6 !important;
+    font-weight: 600 !important;
+  }
+  .Typewriter__cursor {
+    font-size: 36px;
+    color: #8b5cf6 !important;
+  }
+}
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(28deg);
+  }
+  20% {
+    transform: rotate(-16deg);
+  }
+  30% {
+    transform: rotate(18deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

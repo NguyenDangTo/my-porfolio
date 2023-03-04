@@ -3,9 +3,9 @@ import Sidebar from "./Sidebar";
 
 const Layout = ({children}) => {
   return (
-    <section className="flex gap-6">
+    <section className="flex gap-4 overflow-hidden max-w-screen">
       <Sidebar />
-      <main>{children}</main>
+      <>{children}</>
     </section>
   );
 };

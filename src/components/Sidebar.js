@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import {HiMenuAlt3} from "react-icons/hi";
-import {AiOutlineUser, AiOutlineProject} from "react-icons/ai";
+import {AiOutlineUser, AiOutlineFundProjectionScreen} from "react-icons/ai";
 import {FiMessageSquare} from "react-icons/fi";
 import {Link} from "react-router-dom";
 
 const Home = () => {
   const menus = [
     {name: "About me", link: "/", icon: AiOutlineUser},
-    {name: "My Projects", link: "/projects", icon: AiOutlineProject},
+    {name: "My Projects", link: "/projects", icon: AiOutlineFundProjectionScreen},
     {name: "Contact", link: "/contact", icon: FiMessageSquare},
   ];
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div
       className={`bg-white min-h-screen border-r-2 border-gray-200 ${
@@ -23,8 +23,8 @@ const Home = () => {
       <div className="mt-4 flex flex-col gap-4 relative">
         <div className={`w-full flex items-center justify-center`}>
           <div
-            className={`w-[176px] h-[176px] rounded-full overflow-hidden transition duration-500 flex justify-center items-center px-auto ${
-              open ? "scale-100 blur-none" : "scale-0 blur-md"
+            className={`w-[96px] h-[96px] sm:w-[126px] sm:h-[126px] md:w-[176px] md:h-[176px] rounded-full overflow-hidden transition duration-500 flex justify-center items-center px-auto ${
+              open ? "scale-100 blur-none" : "scale-0 blur-lg"
             }`}
           >
             <img
@@ -40,7 +40,7 @@ const Home = () => {
           <Link
             to={menu?.link}
             key={i}
-            className={`w-full group flex items-center text-md gap-3.5 font-medium p-2 hover:bg-rose-300 rounded-md`}
+            className={`w-full group flex items-center text-md gap-3.5 font-medium p-2 hover:bg-violet-400 rounded-md`}
           >
             <div>{React.createElement(menu?.icon, {size: "20"})}</div>
             <h2
