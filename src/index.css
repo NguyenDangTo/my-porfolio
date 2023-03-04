@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Shantell Sans", cursive !important;
+  cursor: url("../public/images/cursor.png"), auto !important;
+}
