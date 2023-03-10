@@ -1,26 +1,99 @@
 import React from "react";
-import Layout from "../components/Layout";
-import Type from "../components/Type";
+import About from "../components/About";
+import Main from "../components/Main";
+import Projects from "../components/Projects";
+import Sidebar from "../components/Sidebar";
+import Contact from "../components/Contact";
+import {useCallback} from "react";
+import Particles from "react-particles";
+import {loadFull} from "tsparticles";
+
 const Home = () => {
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
+
   return (
-    <Layout>
-      <div className="m-0 md:m-3 text-xl text-gray-900 font-semibold flex flex-col justify-center items-center p-4 lg:flex-row w-full gap-[80px]">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col justify-center mb-4">
-            <div className="text-xl md:text-3xl mb-4">
-              Hi There! <span className="text-3xl md:text-5xl wave">👋🏻</span>
-            </div>
-            <div className="text-2xl md:text-4xl">
-              I'M <span className="text-violet-500">NGUYEN DANG TO</span>
-            </div>
-          </div>
-          <Type style={{fontSize: "50px"}} />
-        </div>
-        <div className="w-[200px] md:w-[600px]">
-          <img src="../images/about.png" alt="working" width={"100%"} height={"100%"}></img>
-        </div>
+    <section className="flex gap-4 overflow-hidden max-w-screen">
+      <Sidebar />
+      <div className="flex flex-col w-full sm:ml-[69px]">
+        <Particles
+          className="z-0"
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onHover: {
+                  enable: true,
+                  mode: "repulse",
+                },
+                onClick: {
+                  enable: true,
+                  mode: "push",
+                },
+                resize: true,
+              },
+              modes: {
+                push: {
+                  quantity: 2,
+                },
+                links: {
+                  opacity: 0.2,
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: "#8b5cf6",
+              },
+              links: {
+                color: "#8b5cf6",
+                distance: 200,
+                enable: true,
+                opacity: 0.2,
+                width: 0.8,
+              },
+              collisions: {
+                enable: true,
+              },
+              move: {
+                directions: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: false,
+                speed: 4,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 40,
+              },
+              opacity: {
+                value: 0.2,
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: {min: 1, max: 5},
+              },
+            },
+            detectRetina: true,
+          }}
+        />
+        <Main />
+        <About />
+        <Projects />
+        <Contact />
       </div>
-    </Layout>
+    </section>
   );
 };
 

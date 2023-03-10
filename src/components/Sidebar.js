@@ -1,23 +1,33 @@
 import React, {useState} from "react";
-import {HiMenuAlt3} from "react-icons/hi";
-import {AiOutlineUser, AiOutlineFundProjectionScreen} from "react-icons/ai";
+import {HiMenuAlt3, HiCode} from "react-icons/hi";
+import {BiHome} from "react-icons/bi";
+import {AiOutlineUser} from "react-icons/ai";
 import {FiMessageSquare} from "react-icons/fi";
-import {Link} from "react-router-dom";
 
-const Home = () => {
+const Sidebar = () => {
   const menus = [
-    {name: "About me", link: "/", icon: AiOutlineUser},
-    {name: "My Projects", link: "/projects", icon: AiOutlineFundProjectionScreen},
-    {name: "Contact", link: "/contact", icon: FiMessageSquare},
+    {name: "Main", icon: BiHome, id: "main"},
+    {name: "About me", icon: AiOutlineUser, id: "about"},
+    {name: "My Projects", icon: HiCode, id: "projects"},
+    {name: "Contact", icon: FiMessageSquare, id: "contact"},
   ];
+  const scrollIntoView = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({behavior: "smooth", block: "start"});
+      setOpen(false);
+    }
+  };
   const [open, setOpen] = useState(false);
   return (
     <div
-      className={`bg-white min-h-screen border-r-2 border-gray-200 ${
-        open ? "w-64" : "w-[69px]"
-      } duration-500 text-black px-4 py-2`}
+      className={`bg-white border-r-2 border-gray-200 ${
+        open
+          ? "w-64 bottom-0 h-screen"
+          : "w-[60px] h-[60px] sm:bottom-0 sm:h-screen border-r-2 border-b-2 border-gray-200 p-1 rounded-br-3xl sm:rounded-none"
+      } duration-500 text-black fixed top-0 z-50 overflow-hidden px-3 py-2`}
     >
-      <div className="py-3 flex justify-end">
+      <div className={`flex py-3 ${open ? " justify-end" : "justify-center sm:justify-end"}`}>
         <HiMenuAlt3 size={26} className="cursor-pointer" onClick={() => setOpen(!open)} />
       </div>
       <div className="mt-4 flex flex-col gap-4 relative">
@@ -37,8 +47,8 @@ const Home = () => {
           </div>
         </div>
         {menus?.map((menu, i) => (
-          <Link
-            to={menu?.link}
+          <div
+            onClick={() => scrollIntoView(menu?.id)}
             key={i}
             className={`w-full group flex items-center text-md gap-3.5 font-medium p-2 hover:bg-violet-400 rounded-md`}
           >
@@ -60,11 +70,11 @@ const Home = () => {
             >
               {menu?.name}
             </h2>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Sidebar;
