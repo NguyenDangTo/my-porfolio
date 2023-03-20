@@ -4,15 +4,15 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="h-screen m-3 md:m-3 text-xl text-gray-900 font-semibold flex flex-col justify-center items-center p-4 lg:flex-row w-full gap-[80px]"
+      className="min-h-screen m-3 md:m-3 text-xl text-gray-900 font-semibold flex flex-col justify-center items-center p-4 lg:flex-row w-full gap-[80px]"
     >
-      <div className="w-full gap-4 flex justify-around items-center p-4">
-        <div className="w-1/3 flex flex-col justify-between items-center gap-4 p-4">
+      <div className="w-full gap-4 flex justify-around items-center p-4 flex-col md:flex-row py-4">
+        <div className="w-full md:w-1/3 flex flex-col justify-between items-center gap-4 p-4">
           <div>
             <h4 className="text-violet-600">Contact me</h4>
             <div className="font-bold text-5xl">Get connected to grow better business.</div>
           </div>
-          <div className="flex justify-between py-2 px-4 w-full flex-col md:flex-row mt-4">
+          <div className="flex justify-between w-full flex-col md:flex-row mt-4 gap-2">
             <div className="flex flex-col">
               <div className="text-violet-600">Email</div>
               <div>info@email</div>
@@ -23,7 +23,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 p-4">
+        <div className="w-full md:w-1/2 p-4">
           <form class="w-full">
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
