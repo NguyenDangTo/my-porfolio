@@ -28,7 +28,11 @@ const Sidebar = () => {
       } duration-500 text-black fixed top-0 z-50 overflow-hidden px-3 py-2`}
     >
       <div className={`flex py-3 ${open ? "px-3 justify-end" : "justify-center sm:justify-end"}`}>
-        <HiMenuAlt3 size={26} className="cursor-pointer" onClick={() => setOpen(!open)} />
+        <HiMenuAlt3
+          size={26}
+          className="cursor-pointer hover:scale-125 duration-300 hover:text-violet-400"
+          onClick={() => setOpen(!open)}
+        />
       </div>
       <div className="mt-4 flex flex-col gap-4 relative">
         <div className={`w-full flex items-center justify-center`}>
@@ -50,7 +54,7 @@ const Sidebar = () => {
           <div
             onClick={() => scrollIntoView(menu?.id)}
             key={i}
-            className={`w-full group flex items-center text-md gap-3.5 font-medium p-2 hover:bg-violet-400 rounded-md`}
+            className={`w-full group flex items-center text-md gap-3.5 font-medium p-2 hover:bg-violet-400 rounded-md hover:scale-110 duration-300`}
           >
             <div>{React.createElement(menu?.icon, {size: "20"})}</div>
             <h2
