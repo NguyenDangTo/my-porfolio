@@ -22,7 +22,7 @@ const Main = () => {
             I'M <span className="text-violet-500">NGUYEN DANG TO</span>
           </div>
         </div>
-        <Type style={{fontSize: "50px"}} />
+        <Type style={{fontSize: "48px"}} />
       </div>
       <div className={`w-[250px] sm:w-1/2 md:w-2/5 ${inView && "animate-r_join"}`}>
         <LazyLoadImage src={"../images/about.png"} alt={"working"} width={"100%"} height={"100%"} />
